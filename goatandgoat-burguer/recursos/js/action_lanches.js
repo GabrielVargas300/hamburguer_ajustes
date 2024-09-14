@@ -27,8 +27,8 @@ function comprar(q, v, h) {
     qtd += q;
     valor += v;
 
-    //console.log(qtd, valor, h, v);
-    //console.log(`Quantidade: ${qtd}, Valor total: R$${valor}`);
+    console.log(qtd, valor, h, v);
+    console.log(`Quantidade: ${qtd}, Valor total: R$${valor}`);
     itensCarrinho.textContent = qtd < 10 ? "0" + qtd : qtd;
 
     adicionarProduto(h, v);
@@ -55,7 +55,7 @@ function adicionarProduto(nome, valor) {
 
     rw.onsuccess = (event) => {
         console.log("sucesso", event);
-       // listarProduto(loja);
+        listarProduto(loja);
     };
 }
 
@@ -83,9 +83,9 @@ function listarProduto() {
       conteinerPar.appendChild(novoPar);
   }
 
-  /*function limparBanco() {
-    var store = getObjectStore(DB_STORE_NAME, 'readwrite');
-    var req = store.clear();
+  function limparBanco() {
+    let store = getObjectStore(DB_STORE_NAME, 'readwrite');
+    let req = store.clear();
     req.onsuccess = function(evt) {
       displayActionSuccess("Store cleared");
       displayPubList(store);
@@ -95,7 +95,7 @@ function listarProduto() {
       displayActionFailure(this.error);
     };
   }
-  */
+  
 
 /*---------remove elementos do id modal_corpo-------*/
   function removerElemento(){
