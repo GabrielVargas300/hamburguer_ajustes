@@ -18,7 +18,7 @@ request.onupgradeneeded = (event) => {
     objectStore.createIndex('valor', 'valor', { unique: false });
 };
 
-request.onsuccess = (event) => { // Mover getObjectStore aqui
+request.onsuccess = (event) =>  { // Mover getObjectStore aqui
     db = event.target.result; // Atualizar referência db
 };
 
@@ -27,8 +27,6 @@ function comprar(q, v, h) {
     qtd += q;
     valor += v;
 
-    console.log(qtd, valor, h, v);
-    console.log(`Quantidade: ${qtd}, Valor total: R$${valor}`);
     itensCarrinho.textContent = qtd < 10 ? "0" + qtd : qtd;
 
     adicionarProduto(h, v);
@@ -36,7 +34,6 @@ function comprar(q, v, h) {
 }
 
 function adicionarProduto(nome, valor) {
-    console.log(nome, valor);
     let produtoEscolhido = { nome: nome, valor: valor };
 
     const rw = db.transaction(NOMETABELA, 'readwrite'); // Use a instância db
@@ -45,7 +42,7 @@ function adicionarProduto(nome, valor) {
     try {
         req = loja.add(produtoEscolhido);
     } catch (e) {
-        console.log(e);
+        console.log(e);//adicionar elemento.text
     }
 
     rw.onerror = (event) => {
@@ -77,14 +74,14 @@ function listarProduto() {
   };
 
   function criarParagrafoModal(texto){
-     let conteinerPar = document.getElementById('modal_corpo')
-      let novoPar = document.createElement('p')
-      novoPar.textContent = texto
+     let conteinerPar = document.getElementById('modal_corpo');
+      let novoPar = document.createElement('p');
+      novoPar.textContent = texto;
       conteinerPar.appendChild(novoPar);
   }
 
   function limparBanco() {
-    let store = getObjectStore(DB_STORE_NAME, 'readwrite');
+    let store = getObjectStore(NOMETABELA, 'readwrite');
     let req = store.clear();
     req.onsuccess = function(evt) {
       displayActionSuccess("Store cleared");
@@ -101,7 +98,7 @@ function listarProduto() {
   function removerElemento(){
     let conteinerPar = document.getElementById('modal_corpo');
     const paragrafos = conteinerPar.querySelectorAll('p');
-    for (let paragrafo of paragrafos) {
+    for (let paragrafo of paragrafos){
       conteinerPar.removeChild(paragrafo);
     }
   }
