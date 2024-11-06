@@ -197,72 +197,76 @@ nav span{
     color: #dc920d;
 }
 
-/*-----------menbros-------*/
-#menbro{
-    display: flex;
-    margin-top: 100px;
-    
-}
-
-#menbro{
+/*-----------Membros-------*/
+#menbro {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     background-color: black;
+    width: 100%;
+    height:200px;
+    margin-top: 100px; /* Mantenha o margin-top aqui */
+}
+
+#menbro img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 3px solid white;
+    margin: 5px;
+    transition: border 0.3s ease; /* Adicionando transição para hover */
+}
+
+#menbro img:hover {
+    border: 3px solid #dc920d;
+}
+
+#menbro #form {
     width: 50%;
-    height: 640px;
-
-}
-
-#menbro img{
-     border-radius: 50%;
-     width: 80px;
-     height: 80px;
-     border: 3px solid white;
-     margin: 5px;
-  
-    
-}
-#menbro img:hover{
-    border: 3px solid#dc920d;
-}
-
-#menbro #form{
-    width: 50%;
-    margin: 20px;
+    margin: 20px auto; /* Usando auto para centralizar horizontalmente */
+    justify-content: center;
+    margin-top: 3%;
     border: 3px solid black;
     border-radius: 15px;
+    padding: 20px;
 }
-#menbro #form label,input{
+
+#menbro #form label,
+#menbro #form input {
     display: block;
-    margin:  7px;
+    margin: 7px 0;
     padding: 7px;
-    border: none;
+    width: 100%; /* Definindo largura 100% para os campos do form */
+    border: 1px solid #ccc; /* Adicionando borda padrão nos inputs */
 }
-input[type="text"]:focus{
-    outline: none;
-  
-}
-#menbro #form input[type="text"]{
-    width: 93%;
+
+#menbro #form input[type="text"] {
+    width: 100%; /* Garantindo que o campo de texto ocupe toda a largura disponível */
     border-bottom: 1px solid #ccc;
 }
 
-#menbro #form input[type="button"]{
+#menbro #form input[type="button"] {
     border-radius: 15px;
     margin-top: 25px;
-    margin-left: 150px;
-    padding: 25px ;
+    padding: 12px 25px;
     border: 3px solid black;
     font-size: 1.3em;
     background-color: white;
-
+    cursor: pointer; /* Adicionando o cursor pointer para indicar que é clicável */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Efeitos de transição */
 }
 
-#menbro #form input:hover{
-    color:  #dc920d;
+#menbro #form input[type="button"]:hover {
+    background-color: #dc920d; /* Cor de fundo ao passar o mouse */
+    color: white; /* Mudança de cor do texto */
 }
+
+#menbro #form input[type="text"]:focus {
+    outline: none; /* Retirando o contorno no foco */
+    border-color: #dc920d; /* Mudando a cor da borda do campo de texto */
+}
+
 
 /*-------------fim menbros---------------*/
 
